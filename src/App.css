@@ -1,38 +1,70 @@
-.App {
+.iris-form-container {
   text-align: center;
+  margin: auto;
+  height: 100px;
+  margin-left: 2em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.iris3d-form-container {
+  text-align: center;
+  margin: auto;
+  height: 100px;
+  margin-left: 2em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.iris-plot-container {
+  text-align: center;
+  /* padding-bottom: 20px; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.iris3d-plot-container {
+  text-align: center;
+  /* padding-bottom: 20px; */
 }
 
-.App-link {
-  color: #61dafb;
+.circle-tick,
+.title-class,
+.circle-class {
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.intro-text {
+  transform: translate(790px, 10px);
+}
+
+/* .circle-class {
+  transition: transform 0.1s;
+}
+
+.circle-class:hover {
+  transform: scale(1.1);
+} */
+
+.legend-container-3d {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.iris-3d-div {
+  /* width: 5vh;
+  height: 5vh; */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.iris-form-container-tsne {
+  /* display: flex; */
+  text-align: center;
+  /* align-items: center; */
+}
+
+/* .iris-plot-grid-tsne {
+  border: rgb(119, 194, 212) solid 2px;
+  border-radius: 10px;
+} */
+
+.iris-tsne-plot-container {
+  border: rgb(119, 194, 212) solid 2px;
+  border-radius: 10px;
 }
