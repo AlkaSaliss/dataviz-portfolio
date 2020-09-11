@@ -33,7 +33,7 @@ export default () => {
       <Grid item xs={4} className='democlassi-camera' style={{ textAlign: 'center' }}>
         <Avatar alt='emoji'
           src={'/static/images/upside-down-dizzy-face.png'}
-          style={{height: '250px', width: '250px'}}
+          style={{ height: '250px', width: '250px' }}
         />
       </Grid>
       <Grid item xs={12} className='democlassi-camera'>

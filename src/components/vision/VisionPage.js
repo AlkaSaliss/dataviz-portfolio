@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import DEmoClassi from './DEmoClassi'
-
+import Mnist from './Mnist'
 
 
 const TabPanel = (props) => {
@@ -69,19 +69,19 @@ export default () => {
           scrollButtons='auto'
           aria-label='scrollable auto tabs example'
         >
-          <Tab label='Emotion recognition' {...a11yProps(0)} />
+          <Tab label='Digit Drawing' {...a11yProps(0)} />
           <Tab label='Emotion recognition' {...a11yProps(1)} />
           <Tab label='Emotion recognition' {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <DEmoClassi />
+        <Mnist />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <DEmoClassi />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <DEmoClassi/>
+        <DEmoClassi />
       </TabPanel>
     </div>
   )

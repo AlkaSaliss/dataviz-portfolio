@@ -301,3 +301,7 @@
   border: rgb(119, 194, 212) solid 2px;
   border-radius: 10px;
 }
+
+.digit-draw {
+  border: cornflowerblue solid 5px;
+}
