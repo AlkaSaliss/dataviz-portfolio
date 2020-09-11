@@ -14,9 +14,12 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ScatterIcon from '@material-ui/icons/ScatterPlot'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
+import VisibilityIcon from '@material-ui/icons/Visibility'
+import TranslateIcon from '@material-ui/icons/Translate'
 import ListItemText from '@material-ui/core/ListItemText'
 import HomePage from './HomePage'
-import BarChartPage from './barCharts/BarChartPage'
+import Resume from './resume/Resume'
+import VisionPage from './vision/VisionPage'
 import ScatterPlotPage from './scatterPlots/ScatterPlotPage'
 
 
@@ -84,8 +87,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default () => {
   const classes = useStyles()
-  const [open, setOpen] = React.useState(true)
-  const [activeMenu, setActiveMenu] = React.useState('scatter')
+  const [open, setOpen] = React.useState(false)
+  const [activeMenu, setActiveMenu] = React.useState('home')
 
   const handleDrawerOpen = () => setOpen(true)
 
@@ -100,10 +103,12 @@ export default () => {
   const toggleMenu = () => {
     if (activeMenu === 'home') {
       return (<HomePage />)
+    } else if (activeMenu === "resume") {
+      return (<Resume />)
     } else if (activeMenu === 'scatter') {
       return (<ScatterPlotPage />)
-    } else if (activeMenu === 'bar') {
-      return (<BarChartPage />)
+    } else if (activeMenu === 'cv') {
+      return (<VisionPage />)
     }
   }
 
@@ -129,9 +134,16 @@ export default () => {
           </IconButton>
 
           <div className='home-title' style={{ display: 'flex', cursor: 'pointer' }} onClick={() => handleMenuChange('home')}>
+            <i className="fa fa-terminal" aria-hidden='true'
+              style={{
+                fontSize: '1.25em', color: 'fffefb',
+                background: 'black', marginTop: '4px', marginBottom: '4px'
+              }} >
+            </i>
             <Typography variant="h4" noWrap>
               Home
             </Typography>
+            <i className="fa fa-code" aria-hidden='true' style={{ fontSize: '1.5em', color: '#19e9e9', marginTop: '8px' }} ></i>
           </div>
         </Toolbar>
       </AppBar>
@@ -153,18 +165,32 @@ export default () => {
         </div>
         <Divider />
         <List>
+          <ListItem button key={0} className='menu-icons' onClick={() => handleMenuChange('resume')}>
+            <ListItemIcon >
+              <i className={`fa fa-graduation-cap ${classes.menuIcons}`} aria-hidden='true'  ></i>
+            </ListItemIcon>
+            <ListItemText primary="Resume" color='black' />
+          </ListItem>
+          <Divider/>
           <ListItem button key={0} className='menu-icons' onClick={() => handleMenuChange('scatter')}>
             <ListItemIcon >
               <ScatterIcon className={`${classes.menuIcons}`} />
             </ListItemIcon>
-            <ListItemText primary="Scatter" color='black' />
+            <ListItemText primary="DataViz Show" color='black' />
           </ListItem>
           <Divider />
-          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('bar')}>
+          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('cv')}>
             <ListItemIcon >
-              <i className={`far fa-chart-bar ${classes.menuIcons}`} ></i>
+              <VisibilityIcon className={`${classes.menuIcons}`} />
             </ListItemIcon>
-            <ListItemText primary="Bars" color='black' />
+            <ListItemText primary="Computer Vision" color='black' />
+          </ListItem>
+          <Divider />
+          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('nlp')}>
+            <ListItemIcon >
+              <TranslateIcon className={`${classes.menuIcons}`}/>
+            </ListItemIcon>
+            <ListItemText primary="NLP" color='black' />
           </ListItem>
           <Divider />
         </List>
