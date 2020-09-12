@@ -32,7 +32,7 @@ export default () => {
     canvasContext.scale(3, 3)
     canvasContext.lineCap = 'round'
     canvasContext.strokeStyle = 'black'
-    canvasContext.lineWidth = 15
+    canvasContext.lineWidth = 20
     contextRef.current = canvasContext
   }, [])
 
@@ -68,7 +68,7 @@ export default () => {
 
   return (
     <Grid container className='mnist-container'>
-      <Grid item xs={8}  className='digit-draw' style={{ textAlign: 'center' }}>
+      <Grid item xs={8} className='digit-draw' style={{ textAlign: 'center' }}>
         <canvas
           className='digit-draw-canvas'
           onMouseDown={drawingStart}
