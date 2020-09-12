@@ -9,10 +9,9 @@ export default () => {
   const contextRef = useRef(null)
   const [isDrawing, setIsDrawing] = useState(false)
 
-
   useEffect(() => {
     const dimensions = {
-      width: 500,
+      width: 600,
       height: 500,
       marginTop: 20,
       marginBottom: 20,
@@ -24,16 +23,16 @@ export default () => {
     const innerHeight = dimensions.height - dimensions.marginBottom - dimensions.marginTop
 
     const canvas = canvasRef.current
-    canvas.width = innerWidth * 2
-    canvas.height = innerHeight * 2
+    canvas.width = innerWidth * 3
+    canvas.height = innerHeight * 3
     canvas.style.width = `${innerWidth}px`
     canvas.style.height = `${innerHeight}px`
 
     const canvasContext = canvas.getContext('2d')
-    canvasContext.scale(2, 2)
+    canvasContext.scale(3, 3)
     canvasContext.lineCap = 'round'
     canvasContext.strokeStyle = 'black'
-    canvasContext.lineWidth = 5
+    canvasContext.lineWidth = 15
     contextRef.current = canvasContext
   }, [])
 
@@ -67,11 +66,11 @@ export default () => {
     contextRef.current.stroke()
   }
 
-
   return (
     <Grid container className='mnist-container'>
-      <Grid item xs={8} className='digit-draw' style={{ textAlign: 'center' }}>
+      <Grid item xs={8}  className='digit-draw' style={{ textAlign: 'center' }}>
         <canvas
+          className='digit-draw-canvas'
           onMouseDown={drawingStart}
           onMouseUp={drawingEnd}
           onMouseMove={draw}
