@@ -172,21 +172,21 @@ export default () => {
             <ListItemText primary="Resume" color='black' />
           </ListItem>
           <Divider/>
-          <ListItem button key={0} className='menu-icons' onClick={() => handleMenuChange('scatter')}>
+          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('scatter')}>
             <ListItemIcon >
               <ScatterIcon className={`${classes.menuIcons}`} />
             </ListItemIcon>
             <ListItemText primary="DataViz Show" color='black' />
           </ListItem>
           <Divider />
-          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('cv')}>
+          <ListItem button key={2} className='menu-icons' onClick={() => handleMenuChange('cv')}>
             <ListItemIcon >
               <VisibilityIcon className={`${classes.menuIcons}`} />
             </ListItemIcon>
             <ListItemText primary="Computer Vision" color='black' />
           </ListItem>
           <Divider />
-          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('nlp')}>
+          <ListItem button key={3} className='menu-icons' onClick={() => handleMenuChange('nlp')}>
             <ListItemIcon >
               <TranslateIcon className={`${classes.menuIcons}`}/>
             </ListItemIcon>
