@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "blueimp-load-image": "^5.14.0",
     "d3": "^5.15.1",
+    "express": "^4.17.1",
     "file-saver": "^2.0.2",
     "lodash": "^4.17.19",
     "ndarray": "^1.0.19",

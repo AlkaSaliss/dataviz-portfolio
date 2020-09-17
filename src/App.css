@@ -305,3 +305,7 @@
 .digit-draw-canvas {
   border:#7d2ab0 solid 10px;
 }
+
+.tick text {
+  font-size: 1.5vw;
+}
