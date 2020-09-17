@@ -1,28 +1,55 @@
 import React, { useRef, useEffect, useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import { Tensor, InferenceSession } from "onnxjs"
+import Typography from '@material-ui/core/Typography'
+import { Tensor, InferenceSession, } from "onnxjs"
+import ndarray from 'ndarray'
+import ops from 'ndarray-ops'
+import BarChart from './visionCharts/BarChart'
+// import saveAs from 'file-saver'
 
 
-const session = new InferenceSession()
+const session = new InferenceSession({ backendHint: 'webgl' })
 const model_url = "static/ml_models/mnist.onnx"
 
+
+const softMaxFunc = (ar) => {
+  const denom = ar.map(x => Math.exp(x)).reduce((a, b) => a + b)
+  const res = ar.map(x => Math.exp(x) / denom)
+  return res
+}
 
 
 export default () => {
 
   const canvasRef = useRef(null)
+  const canvasRefScaled = useRef(null)
   const contextRef = useRef(null)
   const [isDrawing, setIsDrawing] = useState(false)
-  // const [model, setModel] = useState(null)
-
-  // const session = new InferenceSession()
-  // const model_url = "static/ml_models/mnist.onnx"
+  // ****************************************
+  const defaultBarData = [
+    { pred: 0.1, category: "0", key: 0 },
+    { pred: 0.1, category: "1", key: 1 },
+    { pred: 0.1, category: "2", key: 2 },
+    { pred: 0.1, category: "3", key: 3 },
+    { pred: 0.1, category: "4", key: 4 },
+    { pred: 0.1, category: "5", key: 5 },
+    { pred: 0.1, category: "6", key: 6 },
+    { pred: 0.1, category: "7", key: 7 },
+    { pred: 0.1, category: "8", key: 8 },
+    { pred: 0.1, category: "9", key: 9 }
+  ]
+  const [barData, setBarData] = useState(defaultBarData)
+  const barColumns = { xColumn: 'pred', yColumn: 'category' }
+  const barKey = 'key'
+  const barDimensions = { width: 500, height: 400, marginBottom: 20, marginTop: 20, marginRight: 20, marginLeft: 20 }
+  const barTitle = 'Predicted Probabilities'
+  // ************************************************
 
   useEffect(() => {
     const dimensions = {
-      width: 600,
-      height: 500,
+      width: 340,
+      height: 340,
       marginTop: 20,
       marginBottom: 20,
       marginRight: 20,
@@ -35,6 +62,7 @@ export default () => {
     const canvas = canvasRef.current
     canvas.width = innerWidth * 3
     canvas.height = innerHeight * 3
+
     canvas.style.width = `${innerWidth}px`
     canvas.style.height = `${innerHeight}px`
 
@@ -42,7 +70,7 @@ export default () => {
     canvasContext.scale(3, 3)
     canvasContext.lineCap = 'round'
     canvasContext.strokeStyle = 'black'
-    canvasContext.lineWidth = 20
+    canvasContext.lineWidth = 30
     contextRef.current = canvasContext
 
     async function loadONNXModel() {
@@ -53,20 +81,42 @@ export default () => {
   }, [])
 
   const handlePredict = async () => {
-    console.log("Predict Clicked!!!")
-    console.log(session)
-    const inputs = [
-      new Tensor(new Float32Array(1 * 28 * 28).fill(1), 'float32', [1, 1, 28, 28])
+    const canvasContextScaled = canvasRefScaled.current.getContext('2d')
+    canvasContextScaled.save()
+    canvasContextScaled.scale(28 / contextRef.current.canvas.width, 28 / contextRef.current.canvas.height)
+    canvasContextScaled.clearRect(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height)
+    canvasContextScaled.drawImage(document.getElementById('input-img-canvas'), 0, 0)
+    const imgScaled = canvasContextScaled.getImageData(0, 0, canvasContextScaled.canvas.width, canvasContextScaled.canvas.height)
+    canvasContextScaled.restore()
+    const { data, width, height } = imgScaled
+
+    const imgArray = ndarray(new Float32Array(data), [width, height, 4])
+    const inputArray = ndarray(new Float32Array(width * height * 1), [1, 1, width, height])
+    ops.assign(inputArray.pick(0, 0, null, null), imgArray.pick(null, null, 3))
+    ops.divseq(inputArray, 255)
+    ops.subseq(inputArray, 0.1307)
+    ops.divseq(inputArray, 0.3081)
+
+    const imgTensor = [
+      new Tensor(inputArray.data, 'float32', [1, 1, width, height])
     ]
-    const outputMap = await session.run(inputs)
+
+    const outputMap = await session.run(imgTensor);
     const outputTensor = outputMap.values().next().value
-    console.log(outputTensor)
+    const predProba = [...softMaxFunc(outputTensor.data)]
+    const predData = predProba.map((p, idx) => ({ pred: p, category: idx.toString(), key: idx }))
+    setBarData(predData)
+  }
+
+  const handlePredictClick = () => {
+    handlePredict()
   }
 
   const handleClear = () => {
     if (contextRef.current) {
       contextRef.current.clearRect(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height)
     }
+    setBarData(defaultBarData)
   }
 
   const drawingStart = ({ nativeEvent }) => {
@@ -80,6 +130,7 @@ export default () => {
   const drawingEnd = () => {
     contextRef.current.closePath()
     setIsDrawing(false)
+    handlePredict()
   }
 
   const draw = ({ nativeEvent }) => {
@@ -92,25 +143,44 @@ export default () => {
 
   return (
     <Grid container className='mnist-container'>
-      <Grid item xs={8} className='digit-draw' style={{ textAlign: 'center' }}>
+      <Grid item xs={12} style={{ textAlign: 'center', marginBottom: '1vw' }}>
+        <Typography variant='h4' style={{ fontSize: '1vw' }}>
+          Digit Recognition : Draw a one digit (from 0 to 9) and an embedded (in your browser)
+          AI model will try to predict the probabilities that the Drawing corresponds to each digit.
+        </Typography>
+      </Grid>
+      <Grid item xs={6} className='digit-draw' style={{ textAlign: 'center' }}>
         <canvas
+          id='input-img-canvas'
           className='digit-draw-canvas'
           onMouseDown={drawingStart}
           onMouseUp={drawingEnd}
           onMouseMove={draw}
           ref={canvasRef}
         />
+        <canvas
+          height="28"
+          width="28"
+          style={{ display: 'none' }}
+          ref={canvasRefScaled}
+        />
 
       </Grid>
-      <Grid item xs={4} className='digit-predict' style={{ textAlign: 'center' }}>
-        Hello
+      <Grid item xs={6} className='digit-predict' style={{ textAlign: 'center' }}>
+        <BarChart
+          data={barData}
+          columns={barColumns}
+          dimensions={barDimensions}
+          title={barTitle}
+          id={barKey}
+        />
       </Grid>
       <Grid item xs={12} className='digit-predict'>
         <div style={{ textAlign: 'left', marginBottom: '50px', marginTop: '50px' }}>
           <Button
             variant="contained"
             color="primary"
-            onClick={handlePredict}
+            onClick={handlePredictClick}
             style={{ marginLeft: '100px' }}
           >
             Predict

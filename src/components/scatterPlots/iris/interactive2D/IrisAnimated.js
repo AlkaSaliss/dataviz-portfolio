@@ -29,34 +29,17 @@ export default class IrisAnimated extends React.Component {
       data: null,
       xColumn: 'PetalLengthCm',
       yColumn: 'PetalWidthCm',
-      // xScale: null,
-      // yScale: null,
-      // colorScale: null,
       clickedCategory: null
     }
   }
 
   componentDidMount() {
 
-    // const dimensions = this.getDimensions()
-
     d3.csv('static/data/Iris.csv', rowProcessor).then(data => {
-
-      // const xExtent = d3.extent(data.map(d => d[this.state.xColumn]))
-      // const yExtent = d3.extent(data.map(d => d[this.state.yColumn]))
-      // const colorExtent = [...new Set(data.map(d => d.Species))]
-
-      // const xScale = d3.scaleLinear().domain(xExtent).range([0, dimensions.innerWidth])
-      // const yScale = d3.scaleLinear().domain(yExtent).range([0, dimensions.innerHeight])
-      // const colorScale = d3.scaleOrdinal().domain(colorExtent).range(['red', 'steelblue', 'green'])
-
       this.setState((prevState, prevProps) => (
         {
           ...prevState,
           data,
-          // xScale,
-          // yScale,
-          // colorScale
         }
       )
       )
@@ -203,7 +186,6 @@ export default class IrisAnimated extends React.Component {
             xs={12}
             className='iris-plot-container'
           >
-          {/* this.state.data && this.state.xScale && this.state.yScale && this.state.colorScale && */}
             {
               this.state.data &&
               <svg width={dimensions.width} height={dimensions.height}>
