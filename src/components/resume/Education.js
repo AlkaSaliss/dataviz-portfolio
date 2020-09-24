@@ -8,10 +8,10 @@ export default (props) => {
     <div className='education'>
       <Grid container>
         <Grid item xs={4}>
-          <p>{props.startYear} - {props.endYear} </p>
+          <p style={{ fontSize: '2.5vmin' }}>{props.startYear} - {props.endYear} </p>
         </Grid>
         <Grid item xs={8}>
-          <h4 style={{ marginTop: '0px', fontSize: '1vw' }} >{props.degree}</h4>
+          <h4 style={{ marginTop: '0px', fontSize: '2.5vmin' }} >{props.degree}</h4>
           <p> <strong>School: </strong>{props.schoolName}</p>
           <p> <strong>Major: </strong>{props.major}</p>
         </Grid>

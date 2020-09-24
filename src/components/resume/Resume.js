@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   paperLeft: {
     width: '40%',
     height: '100hv',
-    padding: '2em'
+    padding: '1.1vmin'
   },
   paperRight: {
     width: '60%',
@@ -27,8 +27,10 @@ const useStyles = makeStyles((theme) => ({
     overflowY: 'auto'
   },
   avatar: {
-    width: '250px',
-    height: '250px'
+    // width: '250px',
+    // height: '250px'
+    width: '30vmin',
+    height: '30vmin',
   }
 }))
 
@@ -43,9 +45,9 @@ export default (props) => {
             <Avatar alt="Profil" src="/static/images/alka2.jpg" className={classes.avatar} />
           </Grid>
           <Grid item xs={12}>
-            <h2 style={{ paddingTop: '0.2em', textAlign: 'center', color: 'white', fontSize: '2.5vw' }} >Mahamadou S. A. ALKA</h2>
-            <h4 style={{ color: 'white', textAlign: 'center', fontSize: '2vw' }} > Research Engineer </h4>
-            <h5 style={{ color: 'white', textAlign: 'center', fontSize: '1.5vw' }} > Data Science / Machine Learning</h5>
+            <h2 style={{ paddingTop: '0.2em', textAlign: 'center', color: 'white', fontSize: '3vmin' }} >Mahamadou S. A. ALKA</h2>
+            <h4 style={{ color: 'white', textAlign: 'center', fontSize: '2.5vmin' }} > Research Engineer </h4>
+            <h5 style={{ color: 'white', textAlign: 'center', fontSize: '2vmin' }} > Data Science / Machine Learning</h5>
             <hr
               style={{
                 borderTop: '3px solid #833fb2',
@@ -55,10 +57,10 @@ export default (props) => {
                 borderBottom: 'none'
               }}
             />
-            <p style={{ textAlign: 'justify', fontSize: '1vw', color: '#f6fcfb' }}>
+            <p style={{ textAlign: 'justify', fontSize: '2.5vmin', color: '#f6fcfb' }}>
               Currently working as a Research Engineer at ATOS, in the application of AI to cyber security issues : users behavior modelling, anomaly detection, ..., using machine learning and deep learning.
             </p>
-            <p style={{ fontSize: '1vw', color: '#f6fcfb' }}>
+            <p style={{ fontSize: '2.5vmin', color: '#f6fcfb' }}>
               In my free time, I am also interested in subjects related to Computer Vision, NLP
             and data visualization. You can fin some of my side projects on this website and also 
             <a href='https://github.com/AlkaSaliss?tab=repositories' rel="noopener noreferrer" target='_blank' style={{ textDecoration: 'none', color: 'blue' }} > on github here.</a>
@@ -77,11 +79,11 @@ export default (props) => {
           team='Machine Intelligence for Cyber Security'
           subject="Developping machine learning based tools for anomaly detection in cyber security"
           methods="Machine learning | Deep learning | Data analysis/visualization | Software engineering"
-          tools="Python | Pytorch | Tensorflow/Keras | Scikit-learn | Docker"
+          tools="Python | Pytorch | Tensorflow/Keras | Scikit-learn | Docker | Linux | Spark"
         />
         <Experience
-          startYear='April'
-          endYear='September 2018'
+          startYear='Apr'
+          endYear='Sep 2018'
           jobName='Deep learning intern'
           company='Equancy , Paris, France'
           team='Data Intelligence'
@@ -91,7 +93,7 @@ export default (props) => {
         />
         <Experience
           startYear='June'
-          endYear='August 2017'
+          endYear='Aug 2017'
           jobName='Statistician intern'
           company='Le Crédit Lyonnais (LCL), Villejuif, France'
           team='Quantitative Models Validation'
@@ -100,7 +102,7 @@ export default (props) => {
           tools="SAS"
         />
         <Experience
-          startYear='February'
+          startYear='Feb'
           endYear='June 2016'
           jobName='Statistician/Economist intern'
           company='Laboratoire de Recherches Economiques et Monétaires (LAREM), Dakar, Sénégal'
@@ -145,10 +147,11 @@ export default (props) => {
             progress={90}
           />
           <Skills
-            skill='Data Viz (d3.js, Matplotlib, Bokeh)'
+            skill='Data Viz (d3.js, Matplotlib, Bokeh, Plotly)'
             progress={80}
           />
         </SkillBlock>
+        <hr style={{ borderTop: '1px solid #c1cfcf' }} />
         <SkillBlock blockName='Software | Web | Mobile Dev'>
           <Skills
             skill='Python'

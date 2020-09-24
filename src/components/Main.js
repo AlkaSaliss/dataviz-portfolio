@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -94,6 +95,13 @@ export default () => {
 
   const handleDrawerClose = () => setOpen(false)
 
+  const handleClickAway = () => {
+    if (open) {
+      setOpen(!open)
+    }
+
+  }
+
   const handleMenuChange = (menu) => {
     if (activeMenu === menu) return
     setActiveMenu(menu)
@@ -123,15 +131,17 @@ export default () => {
         })}
       >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </ClickAwayListener>
 
           <div className='home-title' style={{ display: 'flex', cursor: 'pointer' }} onClick={() => handleMenuChange('home')}>
             <i className="fa fa-terminal" aria-hidden='true'
@@ -171,7 +181,7 @@ export default () => {
             </ListItemIcon>
             <ListItemText primary="Resume" color='black' />
           </ListItem>
-          <Divider/>
+          <Divider />
           <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('scatter')}>
             <ListItemIcon >
               <ScatterIcon className={`${classes.menuIcons}`} />
@@ -188,7 +198,7 @@ export default () => {
           <Divider />
           <ListItem button key={3} className='menu-icons' onClick={() => handleMenuChange('nlp')}>
             <ListItemIcon >
-              <TranslateIcon className={`${classes.menuIcons}`}/>
+              <TranslateIcon className={`${classes.menuIcons}`} />
             </ListItemIcon>
             <ListItemText primary="NLP" color='black' />
           </ListItem>

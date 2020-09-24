@@ -14,13 +14,6 @@
   transform: scale(1.1);
 }
 
-/* .home-page {
-  background: #5f2c82;
-  background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);
-  background: linear-gradient(to right, #49a09d, #5f2c82);
-  overflow-y: auto;
-} */
-
 .home-page {
   background: url("/static/images/alka-bg.jpg");
   height: 95%;
@@ -47,9 +40,9 @@
   width: 60%;
   margin: auto;
   border-radius: 10px;
-  height: 65%;
-  padding-top: 0.1em;
-  padding-bottom: 5em;
+  height: 40vmin;
+  padding-top: 1.5em;
+  padding-bottom: 3em;
 }
 
 .banner-text h2 {
@@ -79,27 +72,38 @@
 
 .banner-text p {
   color: white;
-  font-size: 1.25vw;
+  font-size: 2.1vmin;
   padding-top: 0.7em;
 }
 
 .social-links {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 75%;
   margin: auto;
-  margin-bottom: 50px;
-  padding-bottom: 1.5em;
+  margin-bottom: 3em;
+  padding-bottom: 3em;
 }
 
 .social-links i {
   color: antiquewhite;
-  font-size: 4vw;
+  font-size: 7vmin;
+  transition: transform 0.2s;
+}
+
+.stack-overflow-icon {
+  color: antiquewhite;
+  font-size: 7vmin;
   transition: transform 0.2s;
 }
 
 .social-links i:hover {
   transform: scale(1.1);
+  color: #6e1cf1;
+}
+
+.stack-overflow-icon:hover {
+  transform: scale(1.5);
   color: #6e1cf1;
 }
 
@@ -110,127 +114,43 @@
 }
 
 .paper-right {
-  padding: 2em;
+  padding: 2vmin;
   padding-bottom: 5em;
 }
 
 .paper-right h2 {
-  font-size: 2vw;
+  font-size: 3vmin;
   font-style: italic;
 }
 
 .experience p {
-  font-size: 0.85vw;
+  font-size: 2vmin;
 }
 
 .experience p strong {
-  font-size: 0.85vw;
+  font-size: 2vmin;
   font-weight: bold;
   font-style: italic;
 }
 
 .education p {
-  font-size: 0.85vw;
+  font-size:2vmin;
 }
 
 .education p strong {
-  font-size: 0.85vw;
+  font-size: 2vmin;
   font-weight: bold;
   font-style: italic;
 }
 
 .skill {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5vmin;
 }
 .skill span {
-  font-size: 1vw;
+  font-size: 2vmin;
 }
-
-.project-container {
-  position: fixed;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  align-content: center;
-  text-align: center;
-  margin: auto;
-  height: 100vh;
-  width: 100%;
-  padding: 2em;
-  padding-bottom: 5em;
-  overflow-y: auto;
-  background-color: rgb(250, 250, 250);
-  /* background: #5f2c82;
-  background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);
-  background: linear-gradient(to right, #49a09d, #5f2c82); */
-}
-
-/* .projects-grid {
-  display: flex;
-  align-content: center;
-  text-align: center;
-  justify-content: space-between;
-  margin: auto;
-} */
-
-.project-header {
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none; /* Likely future */
-}
-
-.project-card-paper {
-  background-color: black;
-  -webkit-box-shadow: 21px -22px 34px -2px rgba(124, 156, 194, 1);
-  -moz-box-shadow: 21px -22px 34px -2px rgba(124, 156, 194, 1);
-  box-shadow: 21px -22px 34px -2px rgba(124, 156, 194, 1);
-}
-
-.project-card {
-  margin: auto;
-  transition: transform 0.2s;
-  -webkit-box-shadow: 21px -22px 34px -2px rgba(124, 156, 194, 1);
-  -moz-box-shadow: 21px -22px 34px -2px rgba(124, 156, 194, 1);
-  box-shadow: 21px -22px 34px -2px rgba(124, 156, 194, 1);
-}
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: darkgray;
-}
-
-.project-card-grid {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-.project-link {
-  text-decoration: none;
-  border-radius: 5px;
-  background: #dae2f8; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #d6a4a4,
-    #dae2f8
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #d6a4a4,
-    #dae2f8
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.project-link:hover {
-  background: orange;
-}
-
-
-
 
 /* ********************************************************************************************************************* */
-
-
 
 
 .iris-form-container {
@@ -294,11 +214,6 @@
   /* align-items: center; */
 }
 
-/* .iris-plot-grid-tsne {
-  border: rgb(119, 194, 212) solid 2px;
-  border-radius: 10px;
-} */
-
 .iris-tsne-plot-container {
   border: rgb(119, 194, 212) solid 2px;
   border-radius: 10px;
@@ -306,4 +221,8 @@
 
 .digit-draw-canvas {
   border:#7d2ab0 solid 10px;
+}
+
+.tmp-color {
+  color: #c1cfcf;
 }

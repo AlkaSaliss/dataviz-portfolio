@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper'
 import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
 import Typist from 'react-typist'
+import { Icon } from '@iconify/react'
+import stackOverflow from '@iconify/icons-mdi/stack-overflow'
 
 
 
@@ -11,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   homePage: {
     position: 'fixed',
     width: '100%',
-    height: '95%',
+    // height: '100%',
     textAlign: 'center',
     display: 'flex',
     flexGrow: 1,
@@ -19,11 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   avatar: {
-    width: '250px',
-    height: '250px',
+    // maxWidth: '100%',
+    // height: 'auto',
+    // width: '25%',
+    width: '30vmin',
+    height: '30vmin',
     textAlign: 'center',
     margin: 'auto',
-    top: '3em'
+    top: '3vw',
+    bottom: '15vh',
   }
 }));
 
@@ -65,6 +71,10 @@ export default (props) => {
 
               <a href='https://twitter.com/salissoualka' rel="noopener noreferrer" target='_blank' >
                 <i className="fa fa-twitter-square" aria-hidden='true'></i>
+              </a>
+
+              <a href='https://stackoverflow.com/users/7437524/alka?tab=profile' rel="noopener noreferrer" target='_blank' >
+                <Icon icon={stackOverflow} className='stack-overflow-icon' />
               </a>
             </div>
           </div>

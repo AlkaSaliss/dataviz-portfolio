@@ -7,10 +7,10 @@ export default (props) => {
     <div className='experience'>
       <Grid container style={{ marginBottom: '2em' }}>
         <Grid item xs={4}>
-          <p style={{ fontSize: '1vw' }}>{props.startYear} - {props.endYear} </p>
+          <p style={{ fontSize: '2.5vmin' }}>{props.startYear} - {props.endYear} </p>
         </Grid>
         <Grid item xs={8}>
-          <h4 style={{ marginTop: '0px', fontSize: '1vw' }} >{props.jobName}</h4>
+          <h4 style={{ marginTop: '0px', fontSize: '2.5vmin' }} >{props.jobName}</h4>
           <p> <strong>Company: </strong>{props.company} | <strong>Team: </strong>{props.team}</p>
           <p> <strong>Subject: </strong>{props.subject}</p>
           <p> <strong>Methods: </strong>{props.methods}</p>

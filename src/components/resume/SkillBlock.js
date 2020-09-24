@@ -7,7 +7,7 @@ export default (props) => {
   return (
     <Grid container>
       <Grid item xs={2}>
-        <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '2.5vmin', fontWeight: 'bold' }}>
           {props.blockName}
         </div>
       </Grid>
