@@ -9,8 +9,8 @@ import BarChart from './visionCharts/BarChart'
 // import saveAs from 'file-saver'
 
 
-const session = new InferenceSession({ backendHint: 'webgl' })
-const model_url = "static/ml_models/mnist.onnx"
+var session = new InferenceSession({ backendHint: 'webgl' })
+const MODEL_URL = "static/ml_models/mnist.onnx"
 
 
 const softMaxFunc = (ar) => {
@@ -43,8 +43,14 @@ export default () => {
   const barColumns = { xColumn: 'pred', yColumn: 'category' }
   const barKey = 'key'
   const barDimensions = { width: 500, height: 400, marginBottom: 20, marginTop: 20, marginRight: 20, marginLeft: 20 }
-  const barTitle = 'Predicted Probabilities'
+  const barTitle = 'Predicted Digit'
   // ************************************************
+
+
+  // loading model
+  const loadONNXModel = async () => {
+    await session.loadModel(MODEL_URL)
+  }
 
   useEffect(() => {
     const dimensions = {
@@ -70,24 +76,24 @@ export default () => {
     canvasContext.scale(3, 3)
     canvasContext.lineCap = 'round'
     canvasContext.strokeStyle = 'black'
-    canvasContext.lineWidth = 30
+    canvasContext.lineWidth = 20
     contextRef.current = canvasContext
 
-    async function loadONNXModel() {
-      await session.loadModel(model_url)
-    }
+    // load model
     loadONNXModel()
+    return () => {
+      // reinitialize model otherwise exception raised : already initialized
+      session = new InferenceSession({ backendHint: 'webgl' })
+    }
+  }
+    , [])
 
-  }, [])
 
   const handlePredict = async () => {
     const canvasContextScaled = canvasRefScaled.current.getContext('2d')
-    canvasContextScaled.save()
-    canvasContextScaled.scale(28 / contextRef.current.canvas.width, 28 / contextRef.current.canvas.height)
     canvasContextScaled.clearRect(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height)
-    canvasContextScaled.drawImage(document.getElementById('input-img-canvas'), 0, 0)
+    canvasContextScaled.drawImage(document.getElementById('input-img-canvas'), 0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height, 0, 0, 28, 28)
     const imgScaled = canvasContextScaled.getImageData(0, 0, canvasContextScaled.canvas.width, canvasContextScaled.canvas.height)
-    canvasContextScaled.restore()
     const { data, width, height } = imgScaled
 
     const imgArray = ndarray(new Float32Array(data), [width, height, 4])
@@ -108,9 +114,6 @@ export default () => {
     setBarData(predData)
   }
 
-  const handlePredictClick = () => {
-    handlePredict()
-  }
 
   const handleClear = () => {
     if (contextRef.current) {
@@ -144,8 +147,8 @@ export default () => {
   return (
     <Grid container className='mnist-container'>
       <Grid item xs={12} style={{ textAlign: 'center', marginBottom: '1vw' }}>
-        <Typography variant='h4' style={{ fontSize: '1vw' }}>
-          Digit Recognition : Draw a one digit (from 0 to 9) and an embedded (in your browser)
+        <Typography variant='h4' style={{ fontSize: '1.15vw' }}>
+          Digit Recognition : Draw a digit (from 0 to 9) and an embedded (in your browser)
           AI model will try to predict the probabilities that the Drawing corresponds to each digit.
         </Typography>
       </Grid>
@@ -176,20 +179,11 @@ export default () => {
         />
       </Grid>
       <Grid item xs={12} className='digit-predict'>
-        <div style={{ textAlign: 'left', marginBottom: '50px', marginTop: '50px' }}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handlePredictClick}
-            style={{ marginLeft: '100px' }}
-          >
-            Predict
-          </Button>
+        <div style={{ textAlign: 'center', marginBottom: '50px', marginTop: '50px' }}>
           <Button
             variant="contained"
             color="primary"
             onClick={handleClear}
-            style={{ marginLeft: '100px' }}
           >
             Clear Drawing
           </Button>

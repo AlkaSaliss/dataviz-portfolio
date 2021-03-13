@@ -156,7 +156,7 @@
 .iris-form-container {
   text-align: center;
   margin: auto;
-  height: 100px;
+  height: 8vmin;
   margin-left: 2em;
 }
 
@@ -183,17 +183,6 @@
   cursor: pointer;
 }
 
-.intro-text {
-  transform: translate(790px, 10px);
-}
-
-/* .circle-class {
-  transition: transform 0.1s;
-}
-
-.circle-class:hover {
-  transform: scale(1.1);
-} */
 
 .legend-container-3d {
   text-align: left;

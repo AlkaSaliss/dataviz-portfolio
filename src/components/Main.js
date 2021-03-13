@@ -22,6 +22,7 @@ import HomePage from './HomePage'
 import Resume from './resume/Resume'
 import VisionPage from './vision/VisionPage'
 import ScatterPlotPage from './scatterPlots/ScatterPlotPage'
+import NLPPage from './nlp/NLPPage'
 
 
 const drawerWidth = 240
@@ -88,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default () => {
   const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(true)
   const [activeMenu, setActiveMenu] = React.useState('home')
 
   const handleDrawerOpen = () => setOpen(true)
@@ -117,6 +118,8 @@ export default () => {
       return (<ScatterPlotPage />)
     } else if (activeMenu === 'cv') {
       return (<VisionPage />)
+    } else if (activeMenu === 'nlp') {
+      return (<NLPPage />)
     }
   }
 
@@ -182,13 +185,6 @@ export default () => {
             <ListItemText primary="Resume" color='black' />
           </ListItem>
           <Divider />
-          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('scatter')}>
-            <ListItemIcon >
-              <ScatterIcon className={`${classes.menuIcons}`} />
-            </ListItemIcon>
-            <ListItemText primary="DataViz Show" color='black' />
-          </ListItem>
-          <Divider />
           <ListItem button key={2} className='menu-icons' onClick={() => handleMenuChange('cv')}>
             <ListItemIcon >
               <VisibilityIcon className={`${classes.menuIcons}`} />
@@ -201,6 +197,13 @@ export default () => {
               <TranslateIcon className={`${classes.menuIcons}`} />
             </ListItemIcon>
             <ListItemText primary="NLP" color='black' />
+          </ListItem>
+          <Divider />
+          <ListItem button key={1} className='menu-icons' onClick={() => handleMenuChange('scatter')}>
+            <ListItemIcon >
+              <ScatterIcon className={`${classes.menuIcons}`} />
+            </ListItemIcon>
+            <ListItemText primary="DataViz" color='black' />
           </ListItem>
           <Divider />
         </List>

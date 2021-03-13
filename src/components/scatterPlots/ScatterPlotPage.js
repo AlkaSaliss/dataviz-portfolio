@@ -6,9 +6,9 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import IrisAnimated from './iris/interactive2D/IrisAnimated'
+import IrisAnimated from './iris/2D/IrisAnimated'
 import Iris3D from './iris/3D/Iris3DAnimated'
-import IrisTsne from './iris/irisTsne/IrisTsne'
+import IrisTsne from './iris/tSNE/IrisTsne'
 
 
 
@@ -46,8 +46,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: '100%',
-    height: '93vh',
-    marginBottom: '-50',
+    height: '100%',
+    // height: '93vh',
+    // marginBottom: '-50',
     backgroundColor: theme.palette.background.paper,
   },
 }))

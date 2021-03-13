@@ -29,8 +29,10 @@ export default ({ data, xScale, yScale, zScale, colorScale, xColumn, yColumn, zC
 
         // Tweakables
 
-        const width = 800
-        const height = 700
+        // const width = 800
+        // const height = 700
+        const width = window.innerWidth*0.75
+        const height = window.innerHeight * 0.60
         const circleSize = 0.10
         const circleOpacity = 0.9
         const circleStrokeWidth = 0.7 //0.5

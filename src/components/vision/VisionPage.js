@@ -69,20 +69,18 @@ export default () => {
           scrollButtons='auto'
           aria-label='scrollable auto tabs example'
         >
-          <Tab label='Digit Drawing' {...a11yProps(0)} />
-          <Tab label='Emotion recognition' {...a11yProps(1)} />
-          <Tab label='Emotion recognition' {...a11yProps(2)} />
+          <Tab label='Facial Expressions' {...a11yProps(0)} />
+          <Tab label='Digit Drawing' {...a11yProps(1)} />
+          {/* <Tab label='Emotion recognition' {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Mnist />
+        <DEmoClassi />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <DEmoClassi />
+        <Mnist />
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        <DEmoClassi />
-      </TabPanel>
+      
     </div>
   )
 }

@@ -13,17 +13,12 @@ const useStyles = makeStyles((theme) => ({
   homePage: {
     position: 'fixed',
     width: '100%',
-    // height: '100%',
     textAlign: 'center',
     display: 'flex',
     flexGrow: 1,
     borderRadius: 0
   },
-
   avatar: {
-    // maxWidth: '100%',
-    // height: 'auto',
-    // width: '25%',
     width: '30vmin',
     height: '30vmin',
     textAlign: 'center',
