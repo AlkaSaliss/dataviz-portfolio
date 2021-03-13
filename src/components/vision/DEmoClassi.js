@@ -6,7 +6,7 @@ import PlayArrow from '@material-ui/icons/PlayArrow'
 import Pause from '@material-ui/icons/PauseCircleFilled'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Typography from '@material-ui/core/Typography'
-import Avatar from '@material-ui/core/Avatar'
+// import Avatar from '@material-ui/core/Avatar'
 import * as tf_face_detector from '@tensorflow-models/face-landmarks-detection'
 import { InferenceSession, Tensor } from "onnxjs"
 import ndarray from 'ndarray'
