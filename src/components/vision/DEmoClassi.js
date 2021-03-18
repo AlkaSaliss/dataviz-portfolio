@@ -7,6 +7,7 @@ import Pause from '@material-ui/icons/PauseCircleFilled'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Typography from '@material-ui/core/Typography'
 // import Avatar from '@material-ui/core/Avatar'
+import {Alert, AlertTitle} from '@material-ui/lab'
 import * as tf_face_detector from '@tensorflow-models/face-landmarks-detection'
 import { InferenceSession, Tensor } from "onnxjs"
 import ndarray from 'ndarray'
@@ -228,6 +229,10 @@ export default () => {
 
       </Grid>
       <Grid item xs={4} className='democlassi-camera' style={{ textAlign: 'center' }}>
+        <Alert severity="info">
+          <AlertTitle>Info</AlertTitle>
+            If camera not showing after clicking the button, make sure you access the website via <strong> https</strong>
+        </Alert>
         <Typography variant='h4' style={{ fontSize: '1.25vw', marginBottom: '10px',  marginTop: '50px'}}>
           If you're not scared of hackers <span role="img" aria-label="desc">👨🏿‍💻</span>, push the start button & let the MaGiC happen <span role="img" aria-label="desc">🧠</span>.
           <br/>(Don't worry the model is embedded in your browser! So No data sent anywhere! Yeah We are RGPD compliant ᕙ(▀̿̿Ĺ̯̿̿▀̿ ̿) ᕗ)
