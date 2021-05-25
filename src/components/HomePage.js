@@ -38,9 +38,9 @@ export default (props) => {
 
     <Paper className={`${classes.homePage} home-page`} onClick={props.handleClickAway} >
       <Grid container className='home-grid'>
-        <Grid item xs={12}>
-          <Avatar alt="Profil" src="/static/images/alka2.jpg" className={`avatar-img ${classes.avatar}`} />
-        </Grid>
+//         <Grid item xs={12}>
+//           <Avatar alt="Profil" src="/static/images/alka2.jpg" className={`avatar-img ${classes.avatar}`} />
+//         </Grid>
         <Grid item xs={12}>
           <div className='banner-text' >
             <Typist avgTypingDelay={50} cursor={{ show: false, blink: false }} >
