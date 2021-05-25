@@ -64,9 +64,9 @@ export default (props) => {
                 <i className="fa fa-github-square" aria-hidden='true'></i>
               </a>
 
-              <a href='https://twitter.com/salissoualka' rel="noopener noreferrer" target='_blank' >
-                <i className="fa fa-twitter-square" aria-hidden='true'></i>
-              </a>
+//               <a href='https://twitter.com/salissoualka' rel="noopener noreferrer" target='_blank' >
+//                 <i className="fa fa-twitter-square" aria-hidden='true'></i>
+//               </a>
 
               <a href='https://stackoverflow.com/users/7437524/alka?tab=profile' rel="noopener noreferrer" target='_blank' >
                 <Icon icon={stackOverflow} className='stack-overflow-icon' />
