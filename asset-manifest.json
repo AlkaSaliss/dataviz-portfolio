@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/alkai/static/css/main.652d0833.chunk.css",
+    "main.js": "/alkai/static/js/main.56fc9abf.chunk.js",
+    "main.js.map": "/alkai/static/js/main.56fc9abf.chunk.js.map",
+    "runtime-main.js": "/alkai/static/js/runtime-main.85609103.js",
+    "runtime-main.js.map": "/alkai/static/js/runtime-main.85609103.js.map",
+    "static/js/2.ee386f0a.chunk.js": "/alkai/static/js/2.ee386f0a.chunk.js",
+    "static/js/2.ee386f0a.chunk.js.map": "/alkai/static/js/2.ee386f0a.chunk.js.map",
+    "index.html": "/alkai/index.html",
+    "precache-manifest.3a35cc053c3e99f89573a3bf27061861.js": "/alkai/precache-manifest.3a35cc053c3e99f89573a3bf27061861.js",
+    "service-worker.js": "/alkai/service-worker.js",
+    "static/css/main.652d0833.chunk.css.map": "/alkai/static/css/main.652d0833.chunk.css.map",
+    "static/js/2.ee386f0a.chunk.js.LICENSE.txt": "/alkai/static/js/2.ee386f0a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85609103.js",
+    "static/js/2.ee386f0a.chunk.js",
+    "static/css/main.652d0833.chunk.css",
+    "static/js/main.56fc9abf.chunk.js"
+  ]
+}
