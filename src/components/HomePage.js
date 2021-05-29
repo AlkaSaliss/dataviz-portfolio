@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import Avatar from '@material-ui/core/Avatar'
+// import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
 import Typist from 'react-typist'
 import { Icon } from '@iconify/react'
@@ -38,9 +38,9 @@ export default (props) => {
 
     <Paper className={`${classes.homePage} home-page`} onClick={props.handleClickAway} >
       <Grid container className='home-grid'>
-//         <Grid item xs={12}>
-//           <Avatar alt="Profil" src="/static/images/alka2.jpg" className={`avatar-img ${classes.avatar}`} />
-//         </Grid>
+        {/* <Grid item xs={12}>
+          <Avatar alt="Profil" src="/static/images/alka2.jpg" className={`avatar-img ${classes.avatar}`} />
+        </Grid> */}
         <Grid item xs={12}>
           <div className='banner-text' >
             <Typist avgTypingDelay={50} cursor={{ show: false, blink: false }} >
@@ -54,7 +54,7 @@ export default (props) => {
             </Typist>
 
             <hr />
-            <p> Python | Pytorch | Tensorflow/Keras | Scikit-Learn | Pandas/Numpy | D3.js/Matplotlib/Bokeh </p>
+            <p> Python | Pytorch | Tensorflow/Keras | Scikit-Learn | Pandas/Numpy | D3.js/Matplotlib/Bokeh | JS/React/ReactNative/HTML/CSS </p>
             <div className='social-links' >
               <a href='https://www.linkedin.com/in/mahamadou-salissou-aboubacar-alka-038491133' rel="noopener noreferrer" target='_blank' >
                 <i className="fa fa-linkedin-square" aria-hidden='true'></i>
@@ -64,9 +64,9 @@ export default (props) => {
                 <i className="fa fa-github-square" aria-hidden='true'></i>
               </a>
 
-//               <a href='https://twitter.com/salissoualka' rel="noopener noreferrer" target='_blank' >
-//                 <i className="fa fa-twitter-square" aria-hidden='true'></i>
-//               </a>
+              {/* <a href='https://twitter.com/salissoualka' rel="noopener noreferrer" target='_blank' >
+                <i className="fa fa-twitter-square" aria-hidden='true'></i>
+              </a> */}
 
               <a href='https://stackoverflow.com/users/7437524/alka?tab=profile' rel="noopener noreferrer" target='_blank' >
                 <Icon icon={stackOverflow} className='stack-overflow-icon' />
