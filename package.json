@@ -23,7 +23,7 @@
     "react-scripts": "3.4.1",
     "react-typist": "^2.0.5",
     "react-webcam": "^5.2.2",
-    "three": "^0.125.0"
+    "three": "^0.137.0"
   },
   "scripts": {
     "start": "export HTTPS=true&&SSL_CRT_FILE=cert.pem&&SSL_KEY_FILE=key.pem react-scripts start",
