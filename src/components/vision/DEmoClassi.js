@@ -237,16 +237,6 @@ export default () => {
           If you're not scared of hackers <span role="img" aria-label="desc">👨🏿‍💻</span>, push the start button & let the MaGiC happen <span role="img" aria-label="desc">🧠</span>.
           <br/>(Don't worry the model is embedded in your browser! So No data sent anywhere! Yeah We are RGPD compliant ᕙ(▀̿̿Ĺ̯̿̿▀̿ ̿) ᕗ)
         </Typography>
-        {/* <div style={{ textAlign: 'center', alignItems: 'center', alignContent: 'center'}}>
-          <Avatar alt='emoji'
-            src={'/static/images/upside-down-dizzy-face.png'}
-            style={{ height: '100px', width: '100px', float:'left', marginRight: "10"}}
-          />
-          <Avatar alt='emoji'
-            src={'/static/images/upside-down-dizzy-face.png'}
-            style={{ height: '100px', width: '100px', float:'right'}}
-          />
-        </div> */}
       </Grid>
       <Grid item xs={12} className='democlassi-camera'>
         <div style={{ position: 'relative', textAlign: 'center', paddingLeft: '150px', marginBottom: '100px', marginTop: '50px' }}>

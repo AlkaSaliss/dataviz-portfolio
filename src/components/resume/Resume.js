@@ -46,7 +46,7 @@ export default (props) => {
           </Grid>
           <Grid item xs={12}>
             <h2 style={{ paddingTop: '0.2em', textAlign: 'center', color: 'white', fontSize: '3vmin' }} >Mahamadou S. A. ALKA</h2>
-            <h4 style={{ color: 'white', textAlign: 'center', fontSize: '2.5vmin' }} > Research Engineer </h4>
+            <h4 style={{ color: 'white', textAlign: 'center', fontSize: '2.5vmin' }} > Senior consultant </h4>
             <h5 style={{ color: 'white', textAlign: 'center', fontSize: '2vmin' }} > Data Science / Machine Learning</h5>
             <hr
               style={{
@@ -58,11 +58,11 @@ export default (props) => {
               }}
             />
             <p style={{ textAlign: 'justify', fontSize: '2.5vmin', color: '#f6fcfb' }}>
-              Currently working as a Research Engineer at ATOS, in the application of AI to cyber security issues : users behavior modelling, anomaly detection, ..., using machine learning and deep learning.
+              Currently working as senior data scientist consultant at Quantmetry, on different subject such as NLP, computer vision. 
             </p>
             <p style={{ fontSize: '2.5vmin', color: '#f6fcfb' }}>
-              In my free time, I am also interested in subjects related to Computer Vision, NLP
-            and data visualization. You can fin some of my side projects on this website and also 
+              In my free time, I am also interested in subjects related to Computer Vision, NLP, on-device ML and data visualization.
+              You can fin some of my side projects on this website and also 
             <a href='https://github.com/AlkaSaliss?tab=repositories' rel="noopener noreferrer" target='_blank' style={{ textDecoration: 'none', color: 'blue' }} > on github here.</a>
             </p>
           </Grid>
@@ -72,12 +72,23 @@ export default (props) => {
       <Paper className={`${classes.paperRight} paper-right`} elevation={3}>
         <h2>Experience</h2>
         <Experience
-          startYear='2018'
+          startYear='october 2021'
           endYear='now'
+          jobName='Senior Data Scientist'
+          company='Quantmetry, Paris, France'
+          team='Computer Vision'
+          subject="Working with various customer on different subjects, such as tweets analysis, web 
+                  scraping for supply chain, training content creation for reliable AI, ..."
+          methods="Machine learning | Deep learning | Data analysis/visualization | Software engineering"
+          tools="Python | Pytorch | Scikit-learn | Docker | Linux | Spark"
+        />
+        <Experience
+          startYear='Nov 2018'
+          endYear='Oct 2021'
           jobName='Research Engineer - Machine Learning'
           company='Atos, Les Clayes-Sous-Bois, France'
           team='Machine Intelligence for Cyber Security'
-          subject="Developping machine learning based tools for anomaly detection in cyber security"
+          subject="Developed computer vision segmentation models for video surveillance analysis. Also worked on machine learning based frameworks for anomaly detection in cyber security. "
           methods="Machine learning | Deep learning | Data analysis/visualization | Software engineering"
           tools="Python | Pytorch | Tensorflow/Keras | Scikit-learn | Docker | Linux | Spark"
         />
@@ -115,6 +126,13 @@ export default (props) => {
         <hr style={{ borderTop: '3px solid blue' }} />
 
         <h2>Education</h2>
+        <Education
+          startYear={2020}
+          endYear={""}
+          degree="Data Engineering Nanodegree"
+          schoolName='Udacity -Online'
+          major="ETL pipelines with PostgreSQL | ETL with AWS RedShift/S3 | Big Data with Pyspark and AWS EMR | Data pipelines with Airflow"
+        />
         <Education
           startYear={2016}
           endYear={2018}
